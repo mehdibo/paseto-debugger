@@ -1,9 +1,32 @@
 import Head from 'next/head'
 import {useState} from "react";
+import axios from "axios";
 
 export default function Home() {
   const [secret, setSecret] = useState('');
   const [payload, setPayload] = useState('');
+  const [token, setToken] = useState('');
+
+  function decodePaseto(e) {
+      e.preventDefault();
+      if (secret === '')
+      {
+          alert('You must provide a secret');
+          return;
+      }
+      console.log(token);
+      if (token === '' || token === undefined)
+      {
+          alert('You must provide a token');
+          return;
+      }
+      axios.post('/api/decodePaseto', {
+          secret: secret,
+          token: token
+      }).then(function (response) {
+          setPayload(JSON.stringify(response.data))
+      });
+  }
 
   return (
     <div className="container">
@@ -22,10 +45,12 @@ export default function Home() {
         </p>
 
         <div className="grid">
-          <form>
-              <input type="text" placeholder="Secret/Public key"/>
-              <input type="text" placeholder="Paseto token"/>
-              <textarea readOnly="true" rows="10" value={payload} />
+          <form onSubmit={decodePaseto}>
+              <input type="text" placeholder="HEX Secret" onChange={(e) => setSecret(e.target.value)}/>
+              <input type="text" placeholder="Paseto token" onChange={(e) => setToken(e.target.value)}/>
+              <textarea readOnly={true} rows="10" value={payload} />
+              <br />
+              <button type={"submit"}>Decode</button>
           </form>
         </div>
       </main>
