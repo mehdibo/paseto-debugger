@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "next": "9.4.4",
+    "paseto.js": "^0.1.6",
     "react": "16.13.1",
     "react-dom": "16.13.1"
   }
