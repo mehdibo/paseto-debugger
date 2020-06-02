@@ -1,11 +1,13 @@
 import Head from 'next/head'
 import {useState} from "react";
 import axios from "axios";
+import ReactJsonSyntaxHighlighter from 'react-json-syntax-highlighter'
 
 export default function Home() {
-  const [secret, setSecret] = useState('');
-  const [payload, setPayload] = useState('');
-  const [token, setToken] = useState('');
+    const [error, setError] = useState('');
+    const [secret, setSecret] = useState('');
+    const [payload, setPayload] = useState({});
+    const [token, setToken] = useState('');
 
   function decodePaseto(e) {
       e.preventDefault();
@@ -24,7 +26,9 @@ export default function Home() {
           secret: secret,
           token: token
       }).then(function (response) {
-          setPayload(JSON.stringify(response.data))
+          setPayload(response.data)
+      }).catch(function (error) {
+          setError(error.response.data.error);
       });
   }
 
@@ -45,10 +49,11 @@ export default function Home() {
         </p>
 
         <div className="grid">
+            {error && (<div>{error}</div>)}
           <form onSubmit={decodePaseto}>
               <input type="text" placeholder="HEX Secret" onChange={(e) => setSecret(e.target.value)}/>
               <input type="text" placeholder="Paseto token" onChange={(e) => setToken(e.target.value)}/>
-              <textarea readOnly={true} rows="10" value={payload} />
+              <ReactJsonSyntaxHighlighter obj={payload} />
               <br />
               <button type={"submit"}>Decode</button>
           </form>
