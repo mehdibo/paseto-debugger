@@ -12,6 +12,7 @@
     "next": "9.4.4",
     "paseto.js": "^0.1.6",
     "react": "16.13.1",
-    "react-dom": "16.13.1"
+    "react-dom": "16.13.1",
+    "react-json-syntax-highlighter": "^0.1.17"
   }
 }
