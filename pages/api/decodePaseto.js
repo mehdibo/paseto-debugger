@@ -1,4 +1,3 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 const Paseto = require('paseto.js');
 
 function getVersion(token) {
@@ -18,5 +17,11 @@ export default (req, res) => {
               res.statusCode = 200
               res.json(JSON.parse(m))
           }
-      );
+      ).catch(
+          function (error) {
+              res.statusCode = 400
+              console.log(error.message);
+              res.json({error: error.message})
+          }
+    );
 }
