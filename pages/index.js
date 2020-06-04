@@ -53,10 +53,12 @@ export default function Home() {
           <form onSubmit={decodePaseto}>
               <input type="text" placeholder="HEX Secret" onChange={(e) => setSecret(e.target.value)}/>
               <input type="text" placeholder="Paseto token" onChange={(e) => setToken(e.target.value)}/>
-              <ReactJsonSyntaxHighlighter obj={payload} />
-              <br />
-              <button type={"submit"}>Decode</button>
+              <button type={"submit"}>Decode</button>                            
           </form>
+          <div className="results">
+            <ReactJsonSyntaxHighlighter obj={payload} />              
+          </div>
+            
         </div>
       </main>
 
@@ -115,7 +117,7 @@ export default function Home() {
 
         .title a {
           color: #0070f3;
-          text-decoration: none;
+          text-decoration: none;          
         }
 
         .title a:hover,
@@ -127,7 +129,7 @@ export default function Home() {
         .title {
           margin: 0;
           line-height: 1.15;
-          font-size: 4rem;
+          font-size: 4rem;                    
         }
 
         .title,
@@ -153,7 +155,7 @@ export default function Home() {
           display: flex;
           align-items: center;
           justify-content: center;
-          flex-wrap: wrap;
+          flex-direction: column;
 
           max-width: 800px;
           margin-top: 3rem;
@@ -193,6 +195,39 @@ export default function Home() {
           height: 1em;
         }
 
+        input, textarea, button, .results{
+          border-radius: .2rem;
+          padding: 1rem 0.7rem;
+        }
+
+        button{
+          padding: .7rem 6rem;
+          font-weight: 500;
+          font-size: 16px;
+          border: 0;
+          border-radius: .2rem;
+          align-self: flex-end;
+          background: #23292f;
+          color: #fff;
+          margin-bottom 2vh;
+        }
+        
+        button:hover{
+          color: #c7c9ca;   
+          background: #000;       
+        }
+
+        form{
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .results{
+          align-self: flex-start;          
+        }
+
         @media (max-width: 600px) {
           .grid {
             width: 100%;
@@ -201,9 +236,10 @@ export default function Home() {
         }
         input {
             height: 5vh;
-            margin-bottom: 2vh;
+            margin-bottom: 2vh;                
         }
         input, textarea {
+            font-size: 16px;
             width: 100vh;
             border: #ccc solid 1px;
         }
@@ -217,6 +253,8 @@ export default function Home() {
           font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
             Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
             sans-serif;
+          color: #24292e;
+          background: #f6f8fa;
         }
 
         * {
