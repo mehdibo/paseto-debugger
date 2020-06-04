@@ -195,7 +195,7 @@ export default function Home() {
           height: 1em;
         }
 
-        input, textarea, button, .results{
+        input, textarea, button{
           border-radius: .2rem;
           padding: 1rem 0.7rem;
         }
@@ -213,8 +213,8 @@ export default function Home() {
         }
         
         button:hover{
-          color: #c7c9ca;   
-          background: #000;       
+          color: #c7c9ca; 
+          background: #000;
         }
 
         form{
