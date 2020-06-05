@@ -85,6 +85,18 @@ export default function Home() {
                   </Col>
               </Row>
           </main>
+          <footer className={"fixed-bottom"} style={{
+              padding: "12px"
+          }}>
+              <Row>
+                  <Col>
+                      Contribute on <a href={"https://github.com/mehdibo/paseto-debugger"}>
+                        <img height={"20px"} src={"https://raw.githubusercontent.com/rdimascio/icons/master/icons/github.svg"}/>
+                      </a>
+
+                  </Col>
+              </Row>
+          </footer>
           <style jsx global>{`
               html, body {
                 padding: 0;
