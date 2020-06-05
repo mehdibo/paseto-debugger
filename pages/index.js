@@ -1,18 +1,18 @@
 import Head from 'next/head'
 import {useState} from "react";
 import axios from "axios";
-import ReactJsonSyntaxHighlighter from 'react-json-syntax-highlighter'
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Alert from "react-bootstrap/Alert";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+import Card from "react-bootstrap/Card";
 
 export default function Home() {
     const [error, setError] = useState('');
     const [secret, setSecret] = useState('');
-    const [payload, setPayload] = useState({});
+    const [payload, setPayload] = useState(null);
     const [token, setToken] = useState('');
 
   function decodePaseto(e) {
@@ -79,9 +79,13 @@ export default function Home() {
                               Decode
                           </Button>
                       </Form>
-                      <div>
-                          <ReactJsonSyntaxHighlighter obj={payload} />
-                      </div>
+                      <Card className={"mt-4 text-left"}>
+                          <Card.Body>
+                              <pre>
+                              {payload && JSON.stringify(payload, null, 2)}
+                          </pre>
+                          </Card.Body>
+                      </Card>
                   </Col>
               </Row>
           </main>
