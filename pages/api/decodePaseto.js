@@ -7,6 +7,7 @@ function getVersion(token) {
 export default (req, res) => {
     const version = req.body.token.split(".")[0]
     const pVersion = (version === 'v1') ? new Paseto.V1() : new Paseto.V2();
+    // TODO: handle public Paseto tokens
     const sk = new Paseto.SymmetricKey(pVersion);
     sk.hex(req.body.secret);
 
@@ -14,6 +15,8 @@ export default (req, res) => {
       .decrypt(req.body.token, sk)
       .then(
           function (m) {
+              // TODO: handle non-json payloads
+              // TODO: handle footers
               res.statusCode = 200
               res.json(JSON.parse(m))
           }
