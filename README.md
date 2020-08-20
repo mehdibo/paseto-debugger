@@ -1,4 +1,4 @@
-# Paseto Debugger ![Heroku](https://heroku-badge.herokuapp.com/?app=paseto-debugger&style=flat)
+# Paseto Debugger [![Heroku status](https://heroku-badge.herokuapp.com/?app=paseto-debugger&style=flat)](https://heroku-badge.herokuapp.com/?app=paseto-debugger&style=flat)
 This is a simple tool to debug and decode your Paseto tokens online
 It is made using [Next.js](https://nextjs.org/)
 
@@ -27,3 +27,4 @@ PORT=3000 npm run start
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
