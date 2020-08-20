@@ -10,6 +10,7 @@ import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 
 export default function Home() {
+    const version = "0.1b";
     const [error, setError] = useState('');
     const [secret, setSecret] = useState('');
     const [payload, setPayload] = useState(null);
@@ -96,8 +97,7 @@ export default function Home() {
                   <Col>
                       Contribute on <a href={"https://github.com/mehdibo/paseto-debugger"}>
                         <img height={"20px"} src={"https://raw.githubusercontent.com/rdimascio/icons/master/icons/github.svg"}/>
-                      </a>
-
+                      </a> | V{version}
                   </Col>
               </Row>
           </footer>
