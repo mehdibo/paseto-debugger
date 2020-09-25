@@ -56,10 +56,6 @@ export default function Home() {
                               An online debugger to decode Paseto tokens
                           </p>
                       </div>
-                      <Alert variant="warning" className={"mx-auto"}>
-                          The secret you enter here is sent to a backend server to decode your Paseto token, but it is never saved.
-                          You can check the <a href={"https://github.com/mehdibo/paseto-debugger/"} className={"alert-link"}>source code here</a>
-                      </Alert>
                   </Col>
               </Row>
           </header>
@@ -70,8 +66,9 @@ export default function Home() {
                       <Form onSubmit={decodePaseto}>
                           <Form.Group controlId="secretKey">
                               <Form.Control size="lg" type="text" placeholder="Secret in HEX format" onChange={(e) => setSecret(e.target.value)} />
-                              <Form.Text className="text-muted">
-                                  The secret is sent to a backend API, but it is not saved
+                              <Form.Text className="text-muted text-left mt-2">
+                                The secret you enter here is sent to a backend server to decode your Paseto token, but it is never saved.
+                                You can check the <a href={"https://github.com/mehdibo/paseto-debugger/"} className={"alert-link"}>source code</a> of this website.
                               </Form.Text>
                           </Form.Group>
 
