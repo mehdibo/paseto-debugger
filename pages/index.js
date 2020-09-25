@@ -48,12 +48,14 @@ export default function Home() {
           <header>
               <Row>
                   <Col>
-                      <h1>
-                          Paseto Debugger
-                      </h1>
-                      <p className={"lead"}>
-                          An online debugger to decode Paseto tokens
-                      </p>
+                      <div className="py-5">
+                          <h1 className="display-4 mb-3">
+                              Paseto Debugger
+                          </h1>
+                          <p className={"lead"}>
+                              An online debugger to decode Paseto tokens
+                          </p>
+                      </div>
                       <Alert variant="warning" className={"mx-auto"}>
                           The secret you enter here is sent to a backend server to decode your Paseto token, but it is never saved.
                           You can check the <a href={"https://github.com/mehdibo/paseto-debugger/"} className={"alert-link"}>source code here</a>
