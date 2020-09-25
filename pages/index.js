@@ -44,6 +44,7 @@ export default function Home() {
           <Head>
               <title>Paseto Debugger</title>
               <link rel="icon" href="/favicon.ico" />
+              <script async defer src="https://buttons.github.io/buttons.js"></script>
           </Head>
           <header>
               <Row>
@@ -87,20 +88,14 @@ export default function Home() {
                   </Col>
               </Row>
           </main>
-          <footer className={"fixed-bottom"} style={{
-              padding: "12px"
-          }}>
-              <Row>
-                  <Col>
-                      Contribute on <a href={"https://github.com/mehdibo/paseto-debugger"}>
-                        <img height={"20px"} src={"https://raw.githubusercontent.com/rdimascio/icons/master/icons/github.svg"}/>
-                      </a> | V{version}
-                  </Col>
-              </Row>
+          <footer className="bg-white fixed-bottom py-3 border-top">
+            <div className="text-muted mb-2">Contribute on <a href="https://github.com/mehdibo/paseto-debugger">GitHub</a></div>
+            <span className="mr-2"><a className="github-button" href="https://github.com/mehdibo/paseto-debugger/fork" data-icon="octicon-repo-forked" data-show-count="true" aria-label="Fork mehdibo/paseto-debugger on GitHub">Fork</a></span>
+            <a className="github-button" href="https://github.com/mehdibo/paseto-debugger" data-icon="octicon-star" data-show-count="true" aria-label="Star mehdibo/paseto-debugger on GitHub">Star</a>
           </footer>
           <style jsx global>{`
               html, body {
-                padding: 0;
+                padding: 0 0 200px;
                 margin: 0;
                 font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell,
                                 Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
