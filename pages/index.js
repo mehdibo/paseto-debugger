@@ -80,13 +80,11 @@ export default function Home() {
                               Decode
                           </Button>
                       </Form>
-                      <Card className={"mt-4 text-left"}>
+                      {payload && <Card className={"mt-4 text-left"}>
                           <Card.Body>
-                              <pre>
-                              {payload && JSON.stringify(payload, null, 2)}
-                          </pre>
+                              <pre>{JSON.stringify(payload, null, 2)}</pre>
                           </Card.Body>
-                      </Card>
+                      </Card>}
                   </Col>
               </Row>
           </main>
