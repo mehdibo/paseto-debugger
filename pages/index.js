@@ -44,20 +44,19 @@ export default function Home() {
           <Head>
               <title>Paseto Debugger</title>
               <link rel="icon" href="/favicon.ico" />
+              <script async defer src="https://buttons.github.io/buttons.js"></script>
           </Head>
           <header>
               <Row>
                   <Col>
-                      <h1>
-                          Paseto Debugger
-                      </h1>
-                      <p className={"lead"}>
-                          An online debugger to decode Paseto tokens
-                      </p>
-                      <Alert variant="warning" className={"mx-auto"}>
-                          The secret you enter here is sent to a backend server to decode your Paseto token, but it is never saved.
-                          You can check the <a href={"https://github.com/mehdibo/paseto-debugger/"} className={"alert-link"}>source code here</a>
-                      </Alert>
+                      <div className="py-5">
+                          <h1 className="display-4 mb-3">
+                              Paseto Debugger
+                          </h1>
+                          <p className={"lead"}>
+                              An online debugger to decode Paseto tokens
+                          </p>
+                      </div>
                   </Col>
               </Row>
           </header>
@@ -67,43 +66,36 @@ export default function Home() {
                       {error && (<Alert variant={"danger"}>{error}</Alert>)}
                       <Form onSubmit={decodePaseto}>
                           <Form.Group controlId="secretKey">
-                              <Form.Control type="text" placeholder="Secret in HEX format" onChange={(e) => setSecret(e.target.value)} />
-                              <Form.Text className="text-muted">
-                                  The secret is sent to a backend API, but it is not saved
+                              <Form.Control size="lg" type="text" placeholder="Secret in HEX format" onChange={(e) => setSecret(e.target.value)} />
+                              <Form.Text className="text-muted text-left mt-2">
+                                The secret you enter here is sent to a backend server to decode your Paseto token, but it is never saved.
+                                You can check the <a href={"https://github.com/mehdibo/paseto-debugger/"} className={"alert-link"}>source code</a> of this website.
                               </Form.Text>
                           </Form.Group>
 
                           <Form.Group controlId="pasetoToken">
-                              <Form.Control type="text" placeholder="Paseto token" onChange={(e) => setToken(e.target.value)} />
+                              <Form.Control size="lg" type="text" placeholder="Paseto token" onChange={(e) => setToken(e.target.value)} />
                           </Form.Group>
-                          <Button variant="primary" type="submit">
+                          <Button variant="dark" block size="lg" type="submit">
                               Decode
                           </Button>
                       </Form>
-                      <Card className={"mt-4 text-left"}>
+                      {payload && <Card className={"mt-4 text-left"}>
                           <Card.Body>
-                              <pre>
-                              {payload && JSON.stringify(payload, null, 2)}
-                          </pre>
+                              <pre>{JSON.stringify(payload, null, 2)}</pre>
                           </Card.Body>
-                      </Card>
+                      </Card>}
                   </Col>
               </Row>
           </main>
-          <footer className={"fixed-bottom"} style={{
-              padding: "12px"
-          }}>
-              <Row>
-                  <Col>
-                      Contribute on <a href={"https://github.com/mehdibo/paseto-debugger"}>
-                        <img height={"20px"} src={"https://raw.githubusercontent.com/rdimascio/icons/master/icons/github.svg"}/>
-                      </a> | V{version}
-                  </Col>
-              </Row>
+          <footer className="bg-white fixed-bottom py-3 border-top">
+            <div className="text-muted mb-2">Contribute on <a href="https://github.com/mehdibo/paseto-debugger">GitHub</a></div>
+            <span className="mr-2"><a className="github-button" href="https://github.com/mehdibo/paseto-debugger/fork" data-icon="octicon-repo-forked" data-show-count="true" aria-label="Fork mehdibo/paseto-debugger on GitHub">Fork</a></span>
+            <a className="github-button" href="https://github.com/mehdibo/paseto-debugger" data-icon="octicon-star" data-show-count="true" aria-label="Star mehdibo/paseto-debugger on GitHub">Star</a>
           </footer>
           <style jsx global>{`
               html, body {
-                padding: 0;
+                padding: 0 0 200px;
                 margin: 0;
                 font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell,
                                 Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
