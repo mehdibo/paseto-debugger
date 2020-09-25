@@ -69,16 +69,16 @@ export default function Home() {
                       {error && (<Alert variant={"danger"}>{error}</Alert>)}
                       <Form onSubmit={decodePaseto}>
                           <Form.Group controlId="secretKey">
-                              <Form.Control type="text" placeholder="Secret in HEX format" onChange={(e) => setSecret(e.target.value)} />
+                              <Form.Control size="lg" type="text" placeholder="Secret in HEX format" onChange={(e) => setSecret(e.target.value)} />
                               <Form.Text className="text-muted">
                                   The secret is sent to a backend API, but it is not saved
                               </Form.Text>
                           </Form.Group>
 
                           <Form.Group controlId="pasetoToken">
-                              <Form.Control type="text" placeholder="Paseto token" onChange={(e) => setToken(e.target.value)} />
+                              <Form.Control size="lg" type="text" placeholder="Paseto token" onChange={(e) => setToken(e.target.value)} />
                           </Form.Group>
-                          <Button variant="primary" type="submit">
+                          <Button variant="dark" block size="lg" type="submit">
                               Decode
                           </Button>
                       </Form>
