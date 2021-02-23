@@ -33,8 +33,10 @@ export default function Home() {
           secret: secret,
           token: token
       }).then(function (response) {
+          setError('')
           setPayload(response.data)
       }).catch(function (error) {
+          setPayload('')
           setError(error.response.data.error);
       });
   }
